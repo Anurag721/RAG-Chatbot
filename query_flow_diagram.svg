@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+     refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+    <style>
+      .box { fill: #f0f8ff; stroke: #4682b4; stroke-width: 2; rx: 5; }
+      .frontend { fill: #e6f3ff; stroke: #0066cc; }
+      .backend { fill: #fff0e6; stroke: #ff6600; }
+      .ai { fill: #f0fff0; stroke: #32cd32; }
+      .data { fill: #ffe6f0; stroke: #ff1493; }
+      .arrow { stroke: #333; stroke-width: 2; marker-end: url(#arrowhead); }
+      .text { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 10px; fill: #666; }
+      .title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" text-anchor="middle" class="title">RAG Chatbot Query Flow</text>
+  
+  <!-- Frontend Layer -->
+  <rect x="50" y="50" width="700" height="80" class="box frontend"/>
+  <text x="60" y="70" class="title">Frontend (script.js)</text>
+  <rect x="70" y="80" width="100" height="30" class="box"/>
+  <text x="120" y="100" text-anchor="middle" class="text">User Input</text>
+  <rect x="200" y="80" width="120" height="30" class="box"/>
+  <text x="260" y="100" text-anchor="middle" class="text">POST /api/query</text>
+  <rect x="350" y="80" width="100" height="30" class="box"/>
+  <text x="400" y="100" text-anchor="middle" class="text">UI Update</text>
+  
+  <!-- API Layer -->
+  <rect x="50" y="150" width="700" height="60" class="box backend"/>
+  <text x="60" y="170" class="title">FastAPI (app.py)</text>
+  <rect x="200" y="175" width="150" height="25" class="box"/>
+  <text x="275" y="192" text-anchor="middle" class="text">Query Endpoint</text>
+  <rect x="380" y="175" width="150" height="25" class="box"/>
+  <text x="455" y="192" text-anchor="middle" class="text">Session Manager</text>
+  
+  <!-- RAG System Layer -->
+  <rect x="50" y="230" width="700" height="60" class="box backend"/>
+  <text x="60" y="250" class="title">RAG System (rag_system.py)</text>
+  <rect x="200" y="255" width="120" height="25" class="box"/>
+  <text x="260" y="272" text-anchor="middle" class="text">Query Processing</text>
+  <rect x="350" y="255" width="120" height="25" class="box"/>
+  <text x="410" y="272" text-anchor="middle" class="text">History Retrieval</text>
+  
+  <!-- AI Generation Layer -->
+  <rect x="50" y="310" width="700" height="80" class="box ai"/>
+  <text x="60" y="330" class="title">AI Generator (ai_generator.py)</text>
+  <rect x="100" y="340" width="100" height="30" class="box"/>
+  <text x="150" y="360" text-anchor="middle" class="text">Claude API</text>
+  <rect x="230" y="340" width="100" height="30" class="box"/>
+  <text x="280" y="360" text-anchor="middle" class="text">Tool Decision</text>
+  <rect x="360" y="340" width="120" height="30" class="box"/>
+  <text x="420" y="360" text-anchor="middle" class="text">Tool Execution</text>
+  <rect x="510" y="340" width="120" height="30" class="box"/>
+  <text x="570" y="360" text-anchor="middle" class="text">Final Response</text>
+  
+  <!-- Search Tools Layer -->
+  <rect x="50" y="410" width="350" height="60" class="box backend"/>
+  <text x="60" y="430" class="title">Search Tools (search_tools.py)</text>
+  <rect x="120" y="440" width="100" height="25" class="box"/>
+  <text x="170" y="457" text-anchor="middle" class="text">Vector Search</text>
+  <rect x="250" y="440" width="120" height="25" class="box"/>
+  <text x="310" y="457" text-anchor="middle" class="text">Source Tracking</text>
+  
+  <!-- Vector Store Layer -->
+  <rect x="450" y="410" width="300" height="60" class="box data"/>
+  <text x="460" y="430" class="title">Vector Store (ChromaDB)</text>
+  <rect x="480" y="440" width="100" height="25" class="box"/>
+  <text x="530" y="457" text-anchor="middle" class="text">Embeddings</text>
+  <rect x="600" y="440" width="120" height="25" class="box"/>
+  <text x="660" y="457" text-anchor="middle" class="text">Course Content</text>
+  
+  <!-- Document Processing (Static) -->
+  <rect x="50" y="490" width="700" height="60" class="box data"/>
+  <text x="60" y="510" class="title">Document Processing (Startup)</text>
+  <rect x="100" y="520" width="100" height="25" class="box"/>
+  <text x="150" y="537" text-anchor="middle" class="text">Text Chunking</text>
+  <rect x="230" y="520" width="120" height="25" class="box"/>
+  <text x="290" y="537" text-anchor="middle" class="text">Metadata Extract</text>
+  <rect x="380" y="520" width="100" height="25" class="box"/>
+  <text x="430" y="537" text-anchor="middle" class="text">Embeddings</text>
+  <rect x="510" y="520" width="120" height="25" class="box"/>
+  <text x="570" y="537" text-anchor="middle" class="text">Vector Storage</text>
+  
+  <!-- Arrows showing flow -->
+  <!-- Frontend flow -->
+  <line x1="170" y1="95" x2="200" y2="95" class="arrow"/>
+  <line x1="320" y1="95" x2="350" y2="95" class="arrow"/>
+  
+  <!-- Frontend to API -->
+  <line x1="275" y1="110" x2="275" y2="175" class="arrow"/>
+  
+  <!-- API to RAG -->
+  <line x1="275" y1="200" x2="275" y2="255" class="arrow"/>
+  
+  <!-- RAG to AI -->
+  <line x1="275" y1="280" x2="275" y2="340" class="arrow"/>
+  
+  <!-- AI decision flow -->
+  <line x1="200" y1="355" x2="230" y2="355" class="arrow"/>
+  <line x1="330" y1="355" x2="360" y2="355" class="arrow"/>
+  <line x1="480" y1="355" x2="510" y2="355" class="arrow"/>
+  
+  <!-- Tool execution to search -->
+  <line x1="420" y1="370" x2="220" y2="440" class="arrow"/>
+  
+  <!-- Search to vector store -->
+  <line x1="220" y1="455" x2="480" y2="455" class="arrow"/>
+  
+  <!-- Return path arrows -->
+  <line x1="310" y1="440" x2="420" y2="370" class="arrow"/>
+  <line x1="570" y1="340" x2="570" y2="280" class="arrow"/>
+  <line x1="570" y1="255" x2="570" y2="200" class="arrow"/>
+  <line x1="455" y1="175" x2="455" y2="110" class="arrow"/>
+  
+  <!-- Flow labels -->
+  <text x="185" y="90" class="label">1</text>
+  <text x="335" y="90" class="label">2</text>
+  <text x="290" y="140" class="label">3</text>
+  <text x="290" y="220" class="label">4</text>
+  <text x="290" y="300" class="label">5</text>
+  <text x="215" y="350" class="label">6</text>
+  <text x="345" y="350" class="label">7</text>
+  <text x="495" y="350" class="label">8</text>
+  <text x="300" y="395" class="label">9</text>
+  <text x="350" y="395" class="label">10</text>
+  <text x="585" y="300" class="label">11</text>
+  <text x="585" y="220" class="label">12</text>
+  <text x="470" y="140" class="label">13</text>
+  
+  <!-- Legend -->
+  <text x="50" y="580" class="title">Legend:</text>
+  <rect x="120" y="565" width="15" height="15" class="frontend"/>
+  <text x="140" y="577" class="label">Frontend</text>
+  <rect x="200" y="565" width="15" height="15" class="backend"/>
+  <text x="220" y="577" class="label">Backend</text>
+  <rect x="270" y="565" width="15" height="15" class="ai"/>
+  <text x="290" y="577" class="label">AI Processing</text>
+  <rect x="370" y="565" width="15" height="15" class="data"/>
+  <text x="390" y="577" class="label">Data Layer</text>
+</svg>
