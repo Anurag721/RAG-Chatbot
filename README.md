@@ -1,4 +1,4 @@
-# Course Materials RAG System
+# RAG-Chatbot
 
 A Retrieval-Augmented Generation (RAG) system designed to answer questions about course materials using semantic search and AI-powered responses.
 
@@ -53,4 +53,3 @@ uv run uvicorn app:app --reload --port 8000
 The application will be available at:
 - Web Interface: `http://localhost:8000`
 - API Documentation: `http://localhost:8000/docs`
-
